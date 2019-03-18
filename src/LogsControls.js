@@ -5,17 +5,31 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
 export default class LogsControls extends Component {
-    render(props) {
-        return <form>
+
+    render() {
+        return <form onSubmit={this.props.onRequestIdSubmit}>
             <Grid container spacing={24}>
                 <Grid item xs={8}>
-                    <TextField fullWidth/>
+                    <TextField type="text"
+                               value={this.props.requestIdValue}
+                               onChange={this.props.onRequestIdChange}
+                               fullWidth/>
                 </Grid>
                 <Grid item xs={2}>
-                    <Button variant="contained" color="primary" fullWidth>Request ID</Button>
+                    <Button type="submit"
+                            variant="contained"
+                            color="primary"
+                            fullWidth>
+                        Request ID
+                    </Button>
                 </Grid>
                 <Grid item xs={2}>
-                    <Button variant="contained" color="primary" fullWidth>I Feel Lucky</Button>
+                    <Button onClick={this.props.onIFeelLuckyClick} 
+                        variant="contained"
+                        color="primary"
+                        fullWidth>
+                        I Feel Lucky
+                    </Button>
                 </Grid>
             </Grid>
           </form>

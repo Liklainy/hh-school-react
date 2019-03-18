@@ -4,10 +4,39 @@ import LogsControls from "./LogsControls"
 import LogsList from "./LogsList"
 
 export default class Logs extends Component {
-    render(props) {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            requestIdValue: '',
+            logs: {}
+        };
+    
+        this.handleRequestIdSubmit = this.handleRequestIdSubmit.bind(this);
+        this.handleRequestIdChange = this.handleRequestIdChange.bind(this);
+        this.handleIFeelLuckyClick = this.handleIFeelLuckyClick.bind(this);
+    }
+
+    handleRequestIdSubmit(event) {
+        event.preventDefault();
+    }
+
+    handleRequestIdChange(event) {
+        this.setState({requestIdValue: event.target.value});
+    }
+
+    handleIFeelLuckyClick(event) {
+        this.setState({requestIdValue: '123456'});
+    }
+
+
+    render() {
         return <div>
-            <LogsControls />
-            <LogsList />
+            <LogsControls requestIdValue={this.state.requestIdValue}
+                          onRequestIdChange={this.handleRequestIdChange}
+                          onRequestIdSubmit={this.handleRequestIdSubmit}
+                          onIFeelLuckyClick={this.handleIFeelLuckyClick}/>
+            <LogsList logs={this.state.logs}/>
         </div>
     }
 };
