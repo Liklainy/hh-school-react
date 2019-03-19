@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 export default class LogsList extends Component {
     render() {
@@ -15,6 +15,6 @@ export default class LogsList extends Component {
                 <ul>{logItems}</ul>
             </div>;
         });
-        return <div>{logs}</div>
+        return <Fragment>{logs}</Fragment>
     }
 }

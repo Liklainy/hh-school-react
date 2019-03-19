@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import LogsControls from "./LogsControls"
 import LogsList from "./LogsList"
@@ -61,13 +61,13 @@ export default class Logs extends Component {
 
 
     render() {
-        return <div>
+        return <Fragment>
             <LogsControls requestIdValue={this.state.requestIdValue}
                           onRequestIdChange={this.handleRequestIdChange}
                           onRequestIdSubmit={this.handleRequestIdSubmit}
                           onIFeelLuckyClick={this.handleIFeelLuckyClick}/>
             <LogsList logs={this.state.logs}
                       exception={this.state.exception}/>
-        </div>
+        </Fragment>
     }
 };
